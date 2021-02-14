@@ -23,5 +23,6 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::resource('/departments', 'DepartmentController')->except(['edit', 'create']);
+        Route::post('/departments/{department}/logo', 'DepartmentController@logo');
     });
 });
