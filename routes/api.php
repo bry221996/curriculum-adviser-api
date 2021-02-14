@@ -29,5 +29,8 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::resource('/departments/{department}/programs', 'ProgramController')
             ->except(['edit', 'create']);
+
+        Route::resource('/programs/{program}/curricula', 'CurriculumController')
+            ->except(['edit', 'create']);
     });
 });
