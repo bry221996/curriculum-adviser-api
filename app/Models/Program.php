@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Department extends Model
+class Program extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
 
-    public function programs(): HasMany
+    public function department(): BelongsTo
     {
-        return $this->hasMany(Program::class);
+        return $this->belongsTo(Department::class);
     }
 }
