@@ -22,8 +22,8 @@ class DepartmentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->company,
-            'acronym' => $this->faker->unique()->companySuffix,
+            'name' => $this->faker->unique()->sentence,
+            'acronym' => $this->faker->unique()->word,
             'logo' => $this->faker->imageUrl(200, 200)
         ];
     }
