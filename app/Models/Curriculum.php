@@ -13,8 +13,8 @@ class Curriculum extends Model
 
     protected $guarded = [];
 
-    public function structures(): HasMany
+    public function semesters(): HasMany
     {
-        return $this->hasMany(CurriculumStructure::class, 'curriculum_id');
+        return $this->hasMany(Semester::class, 'curriculum_id');
     }
 }

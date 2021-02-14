@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurriculumStructuresTable extends Migration
+class CreateSemestersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCurriculumStructuresTable extends Migration
      */
     public function up()
     {
-        Schema::create('curriculum_structures', function (Blueprint $table) {
+        Schema::create('semesters', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('curriculum_id');
             $table->unsignedBigInteger('year');
-            $table->enum('semester', ['first', 'second', 'midterm']);
+            $table->enum('type', ['first', 'second', 'midterm']);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateCurriculumStructuresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curriculum_structures');
+        Schema::dropIfExists('semesters');
     }
 }

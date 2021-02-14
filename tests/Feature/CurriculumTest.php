@@ -60,7 +60,7 @@ class CurriculumTest extends TestCase
     {
         $data = $this->curriculumData;
 
-        $data['structures'] = [];
+        $data['semesters'] = [];
 
         collect(range(1, 4))
             ->each(function ($year) use (&$data) {
@@ -72,7 +72,7 @@ class CurriculumTest extends TestCase
                         return true;
                     })
                     ->each(function ($semester) use ($year, &$data) {
-                        array_push($data['structures'], ['year' => $year, 'semester' => $semester]);
+                        array_push($data['semesters'], ['year' => $year, 'type' => $semester]);
                     });
             });
 
@@ -85,7 +85,7 @@ class CurriculumTest extends TestCase
                     'academic_year_end',
                     'description',
                     'program_id',
-                    'structures' => [['year', 'semester']]
+                    'semesters' => [['year', 'type']]
                 ]
             ]);
 

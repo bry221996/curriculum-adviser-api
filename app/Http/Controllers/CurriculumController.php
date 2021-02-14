@@ -37,11 +37,11 @@ class CurriculumController extends Controller
         $curriculum = $program->curricula()
             ->create($request->curriculumInput());
 
-        $curriculum->structures()->createMany($request->structures);
+        $curriculum->semesters()->createMany($request->semesters);
 
         return response([
             'status' => true,
-            'data' => $curriculum->load('structures')
+            'data' => $curriculum->load('semesters')
         ]);
     }
 
@@ -63,7 +63,7 @@ class CurriculumController extends Controller
 
         return response([
             'status' => true,
-            'data' => $curriculum->load('structures')
+            'data' => $curriculum->load('semesters')
         ]);
     }
 
