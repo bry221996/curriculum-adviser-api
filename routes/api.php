@@ -20,4 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1'], function () {
     Route::post('/auth/login', 'AuthControler@login');
+
+    Route::group(['middleware' => 'auth:sanctum'], function () {
+        Route::resource('/departments', 'DepartmentController');
+    });
 });
