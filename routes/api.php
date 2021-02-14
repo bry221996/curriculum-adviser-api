@@ -22,7 +22,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/auth/login', 'AuthControler@login');
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
-        Route::resource('/departments', 'DepartmentController')->except(['edit', 'create']);
+        Route::resource('/departments', 'DepartmentController')
+            ->except(['edit', 'create']);
+
         Route::post('/departments/{department}/logo', 'DepartmentController@logo');
+
+        Route::resource('/departments/{department}/programs', 'ProgramController')
+            ->except(['edit', 'create']);
     });
 });
