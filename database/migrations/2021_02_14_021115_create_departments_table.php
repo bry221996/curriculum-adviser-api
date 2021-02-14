@@ -19,6 +19,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('acronym')->unique();
             $table->string('logo')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
