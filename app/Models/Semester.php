@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Semester extends Model
 {
@@ -15,4 +16,13 @@ class Semester extends Model
         'curriculum_id' => 'integer',
         'year' => 'integer',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($semester) {
+            $semester->uuid = Str::uuid()->toString();
+        });
+    }
 }

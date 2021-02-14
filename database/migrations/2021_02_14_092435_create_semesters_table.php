@@ -15,6 +15,7 @@ class CreateSemestersTable extends Migration
     {
         Schema::create('semesters', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->unsignedBigInteger('curriculum_id');
             $table->unsignedBigInteger('year');
             $table->enum('type', ['first', 'second', 'midterm']);
